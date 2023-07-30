@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newConsultFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Fragment.NewConsultFragment">
+
+
+    <ImageView
+        android:id="@+id/new_consult_frag_logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/new_consult_frag_specialite_label"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:labelFor="@id/new_consult_frag_specialite_spinner"
+        android:text="@string/specialites"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_logo" />
+
+    <Spinner
+        android:id="@+id/new_consult_frag_specialite_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_specialite_label" />
+
+    <TextView
+        android:id="@+id/new_consult_frag_clinic_label"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:labelFor="@id/new_consult_frag_clinic_recycler_view"
+        android:text="@string/centres_de_sante"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_specialite_spinner" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/new_consult_frag_clinic_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_clinic_label" />
+
+    <TextView
+        android:id="@+id/new_consult_frag_preference_label"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:labelFor="@id/new_consult_frag_preference_chip_group"
+        android:text="@string/preferences"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_clinic_recycler_view" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/new_consult_frag_preference_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:chipSpacing="8dp"
+        app:layout_constraintTop_toBottomOf="@id/new_consult_frag_preference_label"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/new_consult_frag_preference_male_chip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/homme" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/new_consult_frag_preference_female_chip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/femme" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/new_consult_frag_next_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="false"
+        android:shadowColor="@color/colorAccent"
+        android:text="@string/suivant"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/new_consult_fragment_centre_de_sante_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="new_consult_frag_clinic_recycler_view,new_consult_frag_clinic_label"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/new_consult_frag_pref_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="new_consult_frag_preference_label,new_consult_frag_preference_chip_group" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
